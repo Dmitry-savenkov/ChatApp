@@ -4,7 +4,7 @@ import React from 'react';
 const SignUpScreen = () => {
   return (
     <View>
-      <Text>SignUpScreen</Text>
+      <Text>SignUpScreen initial</Text>
     </View>
   );
 };
