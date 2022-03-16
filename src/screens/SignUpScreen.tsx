@@ -4,22 +4,22 @@ import {
   Image,
   View,
   TextInput,
-  Alert,
   TouchableOpacity,
 } from 'react-native';
 import React, {useContext, useState} from 'react';
 import MaskedView from '@react-native-masked-view/masked-view';
 import LinearGradient from 'react-native-linear-gradient';
 import {ThemesContext} from '../context/Context';
-import MessageIcon from '../components/svgIcons/MessageIcon';
+import MessageIcon from '../components/MessageIcon';
 import LockIcon from '../components/svgIcons/LockIcon';
-LockIcon;
+
 const SignUpScreen = () => {
   const {width, height} = useContext(ThemesContext);
   const [focusEmail, setFocusEmail] = useState(false);
   const [focusPassword, setFocusPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   return (
     <View style={[styles.container]}>
       <View>
@@ -99,8 +99,32 @@ const SignUpScreen = () => {
             underlineColorAndroid="transparent"
           />
         </View>
+        <TouchableOpacity onPress={() => {}}>
+          <View style={[styles.buttonBlock]}>
+            <LinearGradient
+              start={{x: 2, y: 1.33}}
+              end={{x: 0, y: -2}}
+              colors={['rgb(255,169,37)', 'rgb(255,120,65)', 'rgb(255,169,37)']}
+              style={[styles.buttonLogin, styles.centeringBlock]}>
+              <Text style={styles.loginButtonText}>Sign Up</Text>
+            </LinearGradient>
+          </View>
+        </TouchableOpacity>
         <TouchableOpacity>
-          <Text>123</Text>
+          <View style={[styles.accountLoginBlock, styles.centeringBlock]}>
+            <Text style={[styles.navToLoginText]}>Do you have a account? </Text>
+            <MaskedView
+              maskElement={
+                <Text style={[styles.navToLoginTextButton]}>Login here</Text>
+              }>
+              <LinearGradient
+                colors={['rgb(255,169,37)', 'rgb(255,120,65)']}
+                start={{x: 1, y: 1}}
+                end={{x: 0, y: 0.33}}
+                style={{width: 70, height: 16}}
+              />
+            </MaskedView>
+          </View>
         </TouchableOpacity>
       </View>
     </View>
@@ -149,6 +173,31 @@ const styles = StyleSheet.create({
   svgIconInput: {
     marginLeft: 20,
     marginRight: 20,
+  },
+  buttonBlock: {
+    marginTop: 150,
+  },
+  buttonLogin: {
+    borderRadius: 12,
+    width: '100%',
+    height: 55,
+  },
+  loginButtonText: {
+    color: '#FAFAFA',
+    fontWeight: '600',
+    fontSize: 17,
+  },
+  accountLoginBlock: {
+    marginTop: 15,
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  navToLoginText: {
+    color: '#262626',
+    fontWeight: '500',
+  },
+  navToLoginTextButton: {
+    fontWeight: '600',
   },
 });
 
