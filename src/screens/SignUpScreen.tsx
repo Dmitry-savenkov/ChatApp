@@ -15,7 +15,7 @@ import LockIcon from '../components/svgIcons/LockIcon';
 import {colors} from '../constants/theme';
 
 const SignUpScreen = ({navigation}) => {
-  const {width, height} = useContext(ThemesContext);
+  const {width} = useContext(ThemesContext);
   const [focusEmail, setFocusEmail] = useState(false);
   const [focusPassword, setFocusPassword] = useState(false);
   const [email, setEmail] = useState('');
