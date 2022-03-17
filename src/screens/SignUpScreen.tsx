@@ -13,7 +13,7 @@ import {ThemesContext} from '../context/Context';
 import MessageIcon from '../components/MessageIcon';
 import LockIcon from '../components/svgIcons/LockIcon';
 
-const SignUpScreen = () => {
+const SignUpScreen = ({navigation}) => {
   const {width, height} = useContext(ThemesContext);
   const [focusEmail, setFocusEmail] = useState(false);
   const [focusPassword, setFocusPassword] = useState(false);
@@ -99,7 +99,7 @@ const SignUpScreen = () => {
             underlineColorAndroid="transparent"
           />
         </View>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity>
           <View style={[styles.buttonBlock]}>
             <LinearGradient
               start={{x: 2, y: 1.33}}
@@ -110,7 +110,10 @@ const SignUpScreen = () => {
             </LinearGradient>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Login');
+          }}>
           <View style={[styles.accountLoginBlock, styles.centeringBlock]}>
             <Text style={[styles.navToLoginText]}>Do you have a account? </Text>
             <MaskedView
