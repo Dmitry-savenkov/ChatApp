@@ -12,6 +12,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import {ThemesContext} from '../context/Context';
 import MessageIcon from '../components/MessageIcon';
 import LockIcon from '../components/svgIcons/LockIcon';
+import {colors} from '../constants/theme';
 
 const SignUpScreen = ({navigation}) => {
   const {width, height} = useContext(ThemesContext);
@@ -42,7 +43,7 @@ const SignUpScreen = ({navigation}) => {
                 <Text style={[styles.titleGradientElement]}>Sign Up</Text>
               }>
               <LinearGradient
-                colors={['rgb(255,169,37)', 'rgb(255,120,65)']}
+                colors={[colors.primary, colors.secondary]}
                 start={{x: 1, y: 1}}
                 end={{x: 0, y: 0.33}}
                 style={{width: 128, height: 43}}
@@ -55,7 +56,7 @@ const SignUpScreen = ({navigation}) => {
             styles.bgtextInput,
             {
               borderWidth: focusEmail ? 2 : null,
-              borderColor: focusEmail ? 'rgba(255, 169, 37, 1)' : null,
+              borderColor: focusEmail ? colors.primary : null,
             },
           ]}>
           <MessageIcon style={[styles.svgIconInput]} />
@@ -80,7 +81,8 @@ const SignUpScreen = ({navigation}) => {
             {
               marginTop: 0,
               borderWidth: focusPassword ? 2 : null,
-              borderColor: focusPassword ? 'rgba(255, 169, 37, 1)' : null,
+              borderColor: focusPassword ? colors.primary : null,
+              marginBottom: 150,
             },
           ]}>
           <LockIcon style={[styles.svgIconInput]} />
@@ -100,11 +102,11 @@ const SignUpScreen = ({navigation}) => {
           />
         </View>
         <TouchableOpacity>
-          <View style={[styles.buttonBlock]}>
+          <View>
             <LinearGradient
               start={{x: 2, y: 1.33}}
               end={{x: 0, y: -2}}
-              colors={['rgb(255,169,37)', 'rgb(255,120,65)', 'rgb(255,169,37)']}
+              colors={[colors.primary, colors.secondary, colors.primary]}
               style={[styles.buttonLogin, styles.centeringBlock]}>
               <Text style={styles.loginButtonText}>Sign Up</Text>
             </LinearGradient>
@@ -121,7 +123,7 @@ const SignUpScreen = ({navigation}) => {
                 <Text style={[styles.navToLoginTextButton]}>Login here</Text>
               }>
               <LinearGradient
-                colors={['rgb(255,169,37)', 'rgb(255,120,65)']}
+                colors={[colors.primary, colors.secondary]}
                 start={{x: 1, y: 1}}
                 end={{x: 0, y: 0.33}}
                 style={{width: 70, height: 16}}
@@ -137,7 +139,7 @@ const SignUpScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: colors.white,
   },
   bgImage: {
     resizeMode: 'cover',
@@ -148,8 +150,7 @@ const styles = StyleSheet.create({
     paddingTop: 65,
     marginTop: -150,
     borderTopLeftRadius: 100,
-
-    backgroundColor: '#ffffff',
+    backgroundColor: colors.white,
   },
   titleGradientElement: {
     fontSize: 36,
@@ -162,13 +163,13 @@ const styles = StyleSheet.create({
   textInput: {
     width: 180,
     paddingVertical: 17,
-    color: 'black',
+    color: colors.gray800,
   },
   bgtextInput: {
     marginTop: 60,
     alignItems: 'center',
     flexDirection: 'row',
-    backgroundColor: '#F6F7FB',
+    backgroundColor: colors.gray100,
     width: '100%',
     borderRadius: 12,
     marginBottom: 24,
@@ -177,16 +178,13 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
   },
-  buttonBlock: {
-    marginTop: 150,
-  },
   buttonLogin: {
     borderRadius: 12,
     width: '100%',
     height: 55,
   },
   loginButtonText: {
-    color: '#FAFAFA',
+    color: colors.white,
     fontWeight: '600',
     fontSize: 17,
   },
@@ -196,7 +194,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   navToLoginText: {
-    color: '#262626',
+    color: colors.gray800,
     fontWeight: '500',
   },
   navToLoginTextButton: {
